@@ -1,0 +1,41 @@
+/** Fictional recipes, purchasing prices and sales for a demonstration, not client data. */
+export const sampleData = {
+  name: 'Мангал у дома',
+  period: 'Демонстрационный месяц (30 дней)',
+  ingredients: [
+    { id: 'pork', name: 'Свинина', unit: 'кг', previousPrice: 550, currentPrice: 620 },
+    { id: 'chicken', name: 'Курица', unit: 'кг', previousPrice: 245, currentPrice: 285 },
+    { id: 'beef', name: 'Говядина', unit: 'кг', previousPrice: 760, currentPrice: 890 },
+    { id: 'potato', name: 'Картофель', unit: 'кг', previousPrice: 55, currentPrice: 72 },
+    { id: 'onion', name: 'Лук', unit: 'кг', previousPrice: 40, currentPrice: 55 },
+    { id: 'lavash', name: 'Лаваш', unit: 'шт.', previousPrice: 24, currentPrice: 30 },
+    { id: 'sauce', name: 'Соус', unit: 'л', previousPrice: 180, currentPrice: 220 },
+    { id: 'spices', name: 'Смесь специй', unit: 'кг', previousPrice: 600, currentPrice: 680 },
+    { id: 'oil', name: 'Масло', unit: 'л', previousPrice: 135, currentPrice: 165 },
+  ],
+  dishes: [
+    { id: 'pork-skewer', name: 'Шашлык из свинины', category: 'Мангал', price: 399, sales: 220, recipe: [
+      { ingredientId: 'pork', quantity: 0.25 }, { ingredientId: 'onion', quantity: 0.05 },
+      { ingredientId: 'spices', quantity: 0.004 }, { ingredientId: 'sauce', quantity: 0.04 }, { ingredientId: 'lavash', quantity: 0.5 },
+    ] },
+    { id: 'chicken-skewer', name: 'Шашлык из курицы', category: 'Мангал', price: 299, sales: 280, recipe: [
+      { ingredientId: 'chicken', quantity: 0.28 }, { ingredientId: 'onion', quantity: 0.04 },
+      { ingredientId: 'spices', quantity: 0.004 }, { ingredientId: 'sauce', quantity: 0.04 }, { ingredientId: 'lavash', quantity: 0.5 },
+    ] },
+    { id: 'beef-kebab', name: 'Люля-кебаб из говядины', category: 'Мангал', price: 549, sales: 130, recipe: [
+      { ingredientId: 'beef', quantity: 0.25 }, { ingredientId: 'onion', quantity: 0.05 },
+      { ingredientId: 'spices', quantity: 0.004 }, { ingredientId: 'sauce', quantity: 0.04 }, { ingredientId: 'lavash', quantity: 0.5 },
+    ] },
+    { id: 'potato-grill', name: 'Картофель на мангале', category: 'Гарниры', price: 169, sales: 310, recipe: [
+      { ingredientId: 'potato', quantity: 0.25 }, { ingredientId: 'oil', quantity: 0.02 },
+      { ingredientId: 'spices', quantity: 0.003 }, { ingredientId: 'sauce', quantity: 0.03 },
+    ] },
+    { id: 'lavash-grill', name: 'Лаваш с пряным маслом', category: 'Дополнения', price: 69, sales: 260, recipe: [
+      { ingredientId: 'lavash', quantity: 1 }, { ingredientId: 'oil', quantity: 0.003 }, { ingredientId: 'spices', quantity: 0.002 },
+    ] },
+    { id: 'chicken-wrap', name: 'Курица в лаваше', category: 'В лаваше', price: 249, sales: 340, recipe: [
+      { ingredientId: 'chicken', quantity: 0.16 }, { ingredientId: 'lavash', quantity: 1 }, { ingredientId: 'onion', quantity: 0.03 },
+      { ingredientId: 'sauce', quantity: 0.035 }, { ingredientId: 'spices', quantity: 0.002 },
+    ] },
+  ],
+};

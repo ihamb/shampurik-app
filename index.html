@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#242820">
+  <meta name="description" content="Shampurik — демонстрационный отчёт о закупочных ценах, себестоимости и марже блюд. Попробуйте свои данные без регистрации.">
+  <title>Shampurik — маржа меню под контролем</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23d9ed9a'/%3E%3Cpath d='M12 28 28 12M14 19l7 7M19 14l7 7' stroke='%23242820' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к отчёту</a>
+  <aside class="sidebar" aria-label="Навигация">
+    <a class="brand" href="#main" aria-label="Shampurik, к отчёту"><span class="brand-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span>shampurik<span class="brand-dot">.</span></a>
+    <div class="workspace"><span class="workspace-avatar">М</span><div><strong id="workspace-name">Мангал у дома</strong><span>Демонстрационное кафе</span></div></div>
+    <p class="nav-label">РАБОЧЕЕ ПРОСТРАНСТВО</p>
+    <nav>
+      <a class="nav-item active" href="#main"><span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 4v16M10 10h10"/></svg></span> Обзор меню <span class="nav-live">DEMO</span></a>
+      <a class="nav-item" href="#menu"><span aria-hidden="true">▤</span> Отчёт по блюдам</a>
+      <a class="nav-item" href="#ingredients"><span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span> Закупочные цены</a>
+      <a class="nav-item" href="#pilot"><span aria-hidden="true">✧</span> Пилотный запуск</a>
+    </nav>
+    <div class="sidebar-note"><span class="little-spark" aria-hidden="true">✳</span><h2>Меньше таблиц.<br>Больше ясности.</h2><p>Знайте, что происходит с маржой вашего меню.</p><button class="button lime small" data-open-pilot>Условия пилота <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button></div>
+    <div class="sidebar-footer"><span class="online-dot"></span> Все расчёты в вашем браузере</div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><div class="breadcrumbs">Рабочее пространство <span>/</span> <strong>Обзор меню</strong></div><div class="topbar-right"><span class="demo-badge"><span></span> Демо-режим</span><a class="avatar" href="https://t.me/hambinst" target="_blank" rel="noopener noreferrer" aria-label="Связаться с автором в Telegram">Ш</a></div></header>
+    <main id="main">
+      <div class="heading-row"><div><p class="eyebrow">ЗАКУПКИ → СЕБЕСТОИМОСТЬ → МАРЖА</p><h1>Меню под контролем<span>.</span></h1><p class="page-description">Покажем, где подорожали продукты и какие блюда требуют внимания.</p></div><button id="print-report" class="button outline"><span aria-hidden="true">↓</span> Сохранить PDF</button></div>
+      <div class="report-meta"><span class="period-chip"><span aria-hidden="true">▦</span> <span id="report-period">Октябрь 2026</span></span><span class="dataset-note">Вымышленные данные для демонстрации</span></div>
+      <div class="demo-notice"><span aria-hidden="true">◉</span><p><strong>Это работающий пример, а не отчёт реального клиента.</strong> Измените цены ниже или загрузите свой JSON — все цифры пересчитаются.</p><button id="reset-demo" class="text-button">Сбросить пример ↺</button></div>
+      <div id="status-message" class="status-message" role="status" aria-live="polite" hidden></div>
+      <section class="metric-grid" aria-label="Основные показатели">
+        <article class="metric-card"><div class="metric-label">Выручка за период <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><strong id="metric-revenue" class="metric-value">—</strong><div class="metric-bottom"><span class="pill neutral" id="metric-volume">—</span><span>по указанным продажам</span></div></article>
+        <article class="metric-card cost-card"><div class="metric-label">Рост затрат на продукты <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><strong id="metric-increase" class="metric-value">—</strong><div class="metric-bottom"><span class="pill orange" id="metric-increase-percent">—</span><span>при том же объёме продаж</span></div></article>
+        <article class="metric-card"><div class="metric-label">Маржа после продуктов <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9h-9V3Z"/><path d="M16 3.9V8h4.1"/></svg></span></div><strong id="metric-margin" class="metric-value">—</strong><div class="metric-bottom"><span class="pill green" id="metric-margin-percent">—</span><span>от выручки</span></div></article>
+      </section>
+      <p class="scope-note">Маржа здесь = выручка − стоимость ингредиентов. Аренда, зарплаты, налоги, упаковка и другие расходы не учтены. Это не чистая прибыль.</p>
+      <section class="analysis-grid" aria-label="Анализ изменений">
+        <article class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">СРАВНЕНИЕ ЦЕН</p><h2>Что стало дороже</h2></div><span class="subtle-label">стоимость продуктов на порцию</span></div><div class="chart-legend"><span><i class="legend-dot previous"></i> Прежние цены</span><span><i class="legend-dot current"></i> Текущие цены</span></div><div id="cost-chart" class="cost-chart"></div></article>
+        <article class="insight-card"><div class="insight-top"><span class="insight-icon" aria-hidden="true">✳</span><span>ТОЧКА ВНИМАНИЯ</span></div><h2 id="insight-title">Считаем изменения…</h2><p id="insight-description"></p><div class="insight-footer"><span id="insight-count" class="insight-count">—</span><span>блюд выше целевого<br>уровня затрат</span><a href="#menu" aria-label="Перейти к блюдам"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div></article>
+      </section>
+      <section id="menu" class="panel menu-panel">
+        <div class="panel-heading menu-heading"><div><p class="eyebrow">ОДИН ОТЧЁТ — ПОНЯТНЫЕ ДЕЙСТВИЯ</p><h2>Маржа по блюдам <span class="count-badge" id="dish-count">6</span></h2></div><div class="table-actions"><label class="search-field"><span aria-hidden="true">⌕</span><input id="dish-search" type="search" placeholder="Найти блюдо" aria-label="Поиск блюда"></label><button id="export-csv" class="button outline small">Экспорт CSV <span aria-hidden="true">↓</span></button></div></div>
+        <div class="target-control"><label for="food-cost-target">Целевые затраты на продукты <strong><output id="target-value" for="food-cost-target">35</output>%</strong></label><input id="food-cost-target" type="range" min="20" max="60" value="35" step="1"><span>Доля стоимости ингредиентов в цене блюда</span></div>
+        <div class="table-scroll"><table><thead><tr><th scope="col">Блюдо / продажи</th><th scope="col" class="numeric">Цена</th><th scope="col" class="numeric">Продукты / порция</th><th scope="col">Доля продуктов</th><th scope="col" class="numeric">Маржа / порция</th><th scope="col" class="numeric">Цена при цели</th><th scope="col">Статус</th></tr></thead><tbody id="dish-table"></tbody></table><p id="empty-search" class="empty-search" hidden>Блюда не найдены. Попробуйте другое название.</p></div>
+        <div class="table-footnote"><span><i class="legend-dot current"></i> Рекомендация цены = себестоимость ÷ целевая доля, с округлением вверх до 10 ₽.</span><span>Спрос при изменении цен не прогнозируется.</span></div>
+      </section>
+      <section id="ingredients" class="panel ingredients-panel"><div class="panel-heading"><div><p class="eyebrow">ПОПРОБУЙТЕ НА СВОИХ ЦИФРАХ</p><h2>Закупочные цены</h2><p class="section-description">Измените текущую цену — отчёт обновится автоматически.</p></div><div class="import-actions"><button id="download-example" class="text-button">Скачать пример JSON ↓</button><label class="button outline small file-label">Загрузить JSON <span aria-hidden="true">↑</span><input id="import-json" type="file" accept=".json,application/json"></label></div></div><div id="ingredient-list" class="ingredient-grid"></div><p class="privacy-note">Файл обрабатывается на устройстве и никуда не отправляется. После обновления страницы вернутся демонстрационные данные.</p></section>
+      <section id="pilot" class="pilot-banner"><div class="pilot-illustration" aria-hidden="true">✳</div><div class="pilot-copy"><p class="eyebrow">ПРОВЕРЯЕМ ПОЛЬЗУ НА РЕАЛЬНЫХ ДАННЫХ</p><h2>Пять заведений. Один понятный результат.</h2><p>Приглашаем в платный пилот: настроим отчёт по вашему меню и проверим, помогает ли он принимать решения. Продление — только если видите пользу.</p><div class="pilot-price"><strong>4 990 ₽</strong><span>за 30 дней · проверочный тариф</span></div><p class="pilot-disclaimer">Пять — размер пилотной группы, а не число записавшихся. Оплата в демоверсии недоступна.</p></div><button class="button dark" data-open-pilot>Обсудить пилот <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button></section>
+      <footer class="page-footer"><a class="footer-brand" href="#main">shampurik.</a><span>Понятные цифры для небольшого общепита</span><a href="https://t.me/hambinst" target="_blank" rel="noopener noreferrer">Связаться: @hambinst <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a></footer>
+    </main>
+  </div>
+  <dialog id="pilot-dialog" aria-labelledby="pilot-title"><button id="close-pilot" class="close-dialog" aria-label="Закрыть">×</button><span class="modal-tag">ПЛАТНЫЙ ПИЛОТ · ДО 5 ЗАВЕДЕНИЙ</span><h2 id="pilot-title">Проверим пользу<br>на вашем меню.</h2><p>Стоимость — <strong>4 990 ₽ за 30 дней</strong>. Это предложение для проверки спроса. До оплаты согласуем состав данных, сроки и условия работы.</p><ol><li>Выберите 5–10 блюд и подготовьте рецептуры, закупочные цены и продажи.</li><li>Получите отчёт о себестоимости и изменении маржи. Без обещаний роста прибыли.</li><li>В конце месяца решите, нужен ли вам следующий отчёт и продление.</li></ol><a id="pilot-contact" class="button dark" href="https://t.me/hambinst" target="_blank" rel="noopener noreferrer">Написать @hambinst <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a><p class="modal-note">Откроется Telegram. Заявка не отправляется автоматически. В демо нет приёма оплаты и автосписаний.</p></dialog>
+</body>
+</html>

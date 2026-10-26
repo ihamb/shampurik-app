@@ -1,6 +1,6 @@
-slot,contact,permission_to_contact,interview_date,data_scope_agreed,offer_sent,payment_confirmed,report_delivered,decision_recorded,renewal_paid,status,notes
-1,,,,,,,,,,,
-2,,,,,,,,,,,
-3,,,,,,,,,,,
-4,,,,,,,,,,,
-5,,,,,,,,,,,
+slot,contact,permission_to_contact,interview_date,data_scope_agreed,offer_sent,payment_confirmed,npd_receipt_issued,report_delivered,decision_recorded,renewal_paid,status,notes
+1,,,,,,,,,,,,
+2,,,,,,,,,,,,
+3,,,,,,,,,,,,
+4,,,,,,,,,,,,
+5,,,,,,,,,,,,

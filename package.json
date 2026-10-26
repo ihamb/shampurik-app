@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Демонстрация контроля закупочных цен и маржи меню",
   "scripts": {
+    "build": "node scripts/build-static.mjs",
     "dev": "python3 -m http.server 4173 --bind 0.0.0.0",
     "test": "node --test tests/*.test.mjs"
   }

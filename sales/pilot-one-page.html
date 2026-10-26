@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shampurik — предложение платного пилота</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #293124; background: #e8ebdf; font-family: Arial, sans-serif; }
+    .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 17mm 17mm 13mm; background: #fafbf6; }
+    header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 8mm; border-bottom: 1px solid #dbe1cd; }
+    .brand { font-size: 23px; font-weight: 700; letter-spacing: -1px; }
+    .brand span { color: #91a75b; }
+    .tag { color: #768958; font-size: 9px; letter-spacing: 1.5px; }
+    .eyebrow { color: #7b8b63; font-size: 10px; letter-spacing: 1.3px; margin: 9mm 0 4mm; }
+    h1 { font-size: 33px; font-weight: 600; line-height: 1.14; letter-spacing: -1.2px; margin: 0 0 4mm; }
+    .intro { max-width: 165mm; color: #747f68; font-size: 13px; line-height: 1.65; margin: 0 0 6mm; }
+    .price-band { display: flex; align-items: center; justify-content: space-between; background: #e4edcf; padding: 5mm 6mm; border: 1px solid #d6e2bd; border-radius: 10px; }
+    .price { font-size: 28px; letter-spacing: -1px; font-weight: 700; }
+    .price small { font-size: 11px; color: #7e8c69; font-weight: 400; letter-spacing: 0; }
+    .scope { text-align: right; font-size: 11px; line-height: 1.8; color: #687b50; }
+    h2 { font-size: 16px; font-weight: 600; margin: 7mm 0 3mm; }
+    .steps { display: flex; gap: 5mm; }
+    .step { flex: 1; padding: 4mm; border: 1px solid #e0e5d6; border-radius: 8px; background: #fff; }
+    .step strong { display: block; font-size: 12px; margin: 0 0 2mm; }
+    .step p { color: #77836b; font-size: 10px; line-height: 1.7; margin: 0; }
+    .example { border: 1px solid #e1e5d7; border-radius: 10px; overflow: hidden; margin-top: 6mm; background: #fff; }
+    .example-heading { padding: 4mm 5mm; background: #f1f4e8; display: flex; justify-content: space-between; gap: 5mm; align-items: center; }
+    .example-heading strong { font-size: 12px; }
+    .example-heading span { font-size: 8px; color: #839273; }
+    table { width: 100%; border-collapse: collapse; font-size: 10px; }
+    th { color: #8d987d; font-weight: 400; background: #fbfcf7; padding: 3mm 5mm; text-align: right; font-size: 8px; }
+    td { padding: 3.5mm 5mm; border-top: 1px solid #eef0e7; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    .warning { color: #bb7657; }
+    .example-note { padding: 3mm 5mm; border-top: 1px solid #e7ebdf; font-size: 9px; color: #929b86; line-height: 1.6; }
+    .details { display: flex; gap: 8mm; margin: 6mm 0; }
+    .details > div { flex: 1; }
+    .details h2 { margin-top: 0; font-size: 13px; }
+    .details p { margin: 0; color: #7b866d; font-size: 10px; line-height: 1.75; }
+    .contact { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #dbe1cd; padding-top: 5mm; }
+    .contact strong { font-size: 16px; }
+    .contact a { text-decoration: none; color: #3d542b; font-weight: 700; background: #d9e8b9; padding: 3mm 5mm; border-radius: 6px; font-size: 15px; }
+    .footnote { color: #97a088; font-size: 8px; line-height: 1.65; margin: 4mm 0 0; }
+    @media print { body { background: #fff; } .sheet { margin: 0; min-height: 0; padding: 12mm 15mm 10mm; } header { padding-bottom: 6mm; } h1 { font-size: 30px; } .eyebrow { margin: 7mm 0 3mm; } .intro { font-size: 12px; } h2 { margin-top: 5mm; } .example { margin-top: 5mm; } .details { margin: 4mm 0; } * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+    @media screen and (max-width: 800px) { .sheet { width: 100%; min-height: 100vh; padding: 24px; } h1 { font-size: 29px; } .price-band, .steps, .details { flex-wrap: wrap; } .step { min-width: 150px; } .scope { text-align: left; } }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header><div class="brand">shampurik<span>.</span></div><span class="tag">ПРЕДЛОЖЕНИЕ ПЛАТНОГО ПИЛОТА</span></header>
+    <p class="eyebrow">ДЛЯ НЕБОЛЬШИХ КАФЕ И МЯСНЫХ РЕСТОРАНОВ</p>
+    <h1>Закупки подорожали.<br>Какие блюда пора пересчитать?</h1>
+    <p class="intro">Разберём 5–10 блюд по вашим рецептурам и ценам. Покажем, как изменились затраты на продукты и маржа на порцию — без замены вашей кассы или учётной системы.</p>
+    <div class="price-band"><div class="price">4 990 ₽ <small>/ 30 дней</small></div><div class="scope">Один первоначальный отчёт<br>+ одно обновление по новым данным</div></div>
+    <h2>Что получит владелец</h2>
+    <div class="steps">
+      <div class="step"><strong>01 · Понятные затраты</strong><p>Стоимость продуктов на порцию и сравнение с прежними закупочными ценами.</p></div>
+      <div class="step"><strong>02 · Список для проверки</strong><p>Блюда с высокой долей ингредиентов и расчёт цены при выбранной вами целевой доле.</p></div>
+      <div class="step"><strong>03 · Отчёт для решения</strong><p>PDF и таблица, разбор исходных данных и обновление в течение согласованного периода.</p></div>
+    </div>
+    <div class="example">
+      <div class="example-heading"><strong>Как выглядит результат</strong><span>ВЫМЫШЛЕННЫЙ ПРИМЕР · НЕ ДАННЫЕ КЛИЕНТА</span></div>
+      <table><thead><tr><th>Блюдо</th><th>Цена порции</th><th>Продукты на порцию</th><th>Доля продуктов</th></tr></thead><tbody>
+        <tr><td>Шашлык из свинины</td><td>399 ₽</td><td>184,27 ₽</td><td class="warning">46,2%</td></tr>
+        <tr><td>Шашлык из курицы</td><td>299 ₽</td><td>108,52 ₽</td><td>36,3%</td></tr>
+        <tr><td>Люля-кебаб из говядины</td><td>549 ₽</td><td>251,77 ₽</td><td class="warning">45,9%</td></tr>
+      </tbody></table>
+      <div class="example-note">Маржа в отчёте = цена продажи − стоимость ингредиентов. Аренда, зарплаты, налоги, упаковка и другие расходы не учтены. Это не чистая прибыль.</div>
+    </div>
+    <div class="details"><div><h2>Что понадобится от кафе</h2><p>Рецептуры с расходом сырья и известными потерями, прежние и текущие закупочные цены, цены продажи и количество порций за один период. Передавайте только согласованные данные, без сведений гостей и сотрудников.</p></div><div><h2>Как проходит пилот</h2><p>Сначала согласуем состав данных, сроки и условия. После оплаты — отчёт и одно обновление. Следующий месяц за 4 990 ₽ обсуждается отдельно; автоматических списаний нет.</p></div></div>
+    <div class="contact"><strong>Обсудим на пяти блюдах?</strong><a href="https://t.me/hambinst">Telegram · @hambinst</a></div>
+    <p class="footnote">Стоимость — проверочный тариф пилота. Рост прибыли и продаж не обещается; изменение спроса при пересмотре цен не прогнозируется. Пилотная группа рассчитана на пять заведений — это не число существующих клиентов. Счёт — после согласования услуги; чек НПД — после подтверждения фактической оплаты.</p>
+  </main>
+</body>
+</html>
